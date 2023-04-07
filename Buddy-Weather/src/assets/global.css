@@ -2,11 +2,9 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -19,6 +17,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -47,9 +46,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -67,7 +68,6 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -81,11 +81,13 @@ button:focus-visible {
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em rgba(100, 108, 255, 0.6666666667));
 }
+
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em rgba(97, 218, 251, 0.6666666667));
 }
 
 @keyframes logo-spin {
@@ -96,18 +98,15 @@ button:focus-visible {
     transform: rotate(360deg);
   }
 }
-
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
 }
-
 .card {
   padding: 2em;
 }
 
 .read-the-docs {
   color: #888;
-}
-
+}/*# sourceMappingURL=global.css.map */
