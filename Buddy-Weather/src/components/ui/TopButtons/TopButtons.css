@@ -11,4 +11,15 @@
   font-size: 18px;
   line-height: 28px;
   font-weight: 500;
+}
+.top-btn:active {
+  outline: none;
+  background: transparent;
+  border: 1px solid grey;
+}
+
+.top-btn, .top-btn:focus {
+  outline: none;
+  background: transparent;
+  border: 1px solid transparent;
 }/*# sourceMappingURL=TopButtons.css.map */
