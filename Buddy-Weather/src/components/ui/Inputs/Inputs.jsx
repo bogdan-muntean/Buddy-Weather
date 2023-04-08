@@ -10,6 +10,11 @@ function Inputs() {
             <UilSearchAlt className='search-icon' size={30} id='first-icon'></UilSearchAlt>
             <UilLocationPinAlt className='search-icon' size={30}></UilLocationPinAlt>
         </div>
+        <div className='unit-container'>
+            <button className='unit-option' id='unit-metric'>°C</button>
+            <p className='dividing-bar'> | </p>
+            <button className='unit-option' id='unit-imperial'>°F</button>
+        </div>
     </div>
   )
 }
