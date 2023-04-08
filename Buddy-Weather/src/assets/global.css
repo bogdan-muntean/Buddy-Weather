@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
 :root {
   --font-size-default: 17px;
   --font-size-default-hover: calc(var(--font-size-default) + 1px);
@@ -5,6 +6,7 @@
   --font-size-big-title: calc(var(--font-size-subtitle) + 12px);
   --font-size-title: calc(var(--font-size-subtitle) + 5px);
   --line-height-default: 26px;
+  --color-text-primary: #000;
   --color-primary: #191d2b;
   --color-secondary: #273dae;
   --color-white: #ffffff;
@@ -27,13 +29,15 @@
   padding: 0;
   box-sizing: border-box;
   list-style: none;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 html {
   height: 100vh;
-  font-family: "Oxygen", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: var(--font-size-default);
   transition: var(--transition-1);
+  color: var(--color-text-primary);
 }
 
 .App {

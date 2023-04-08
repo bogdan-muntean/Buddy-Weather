@@ -51,13 +51,14 @@
   align-items: center;
 }
 .unit-option {
-  font-size: 20px;
+  font-size: 22px;
   line-height: 28px;
   font-weight: 300;
   background: transparent;
   border: 1px solid transparent;
   color: var(--color-black);
   transition: ease-out;
+  cursor: pointer;
   &:hover {
     scale: 1.25;
   }

@@ -5,6 +5,7 @@
   --font-size-big-title: calc(var(--font-size-subtitle) + 12px);
   --font-size-title: calc(var(--font-size-subtitle) + 5px);
   --line-height-default: 26px;
+  --color-text-primary: #000;
   --color-primary: #191d2b;
   --color-secondary: #273dae;
   --color-white: #ffffff;
