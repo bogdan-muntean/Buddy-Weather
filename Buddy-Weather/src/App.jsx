@@ -2,13 +2,12 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './assets/global.css'
+import TopButtons from './components/ui/TopButtons/TopButtons'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="App">
-      <div>Hello</div>
+      <TopButtons></TopButtons>
     </div>
   )
 }
