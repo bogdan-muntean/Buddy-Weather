@@ -2,7 +2,95 @@
   width: 100%;
 }
 
-.temp-detail-icon-principal {
+.detail {
+  padding: 24px 0px;
+  font-size: 20px;
+  line-height: 28px;
+  text-align: center;
+}
+
+.temp-container {
+  display: flex;
+  padding: 12px 0px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.temp-icon-principal {
   width: 100px;
   height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.temp-temperature {
+  font-size: 50px;
+  line-height: 1;
+}
+
+.temp-bonus-container {
+  width: 200px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.temp-bonus-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+  align-items: center;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 300;
+  margin: 5px 0px;
+}
+.temp-bonus-item p {
+  margin-left: 10px;
+}
+
+.temp-bonus-image {
+  width: 25px;
+  height: 25px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.temp-bonus-item-span {
+  margin-left: 4px;
+  font-weight: 500;
+}
+
+.edges-container {
+  display: flex;
+  padding: 15px 0px;
+  margin-top: 25px;
+  font-size: 14px;
+  line-height: 20px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.edge-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.edge-item-text {
+  font-weight: 300;
+}
+
+.edge-value {
+  margin-left: 4px;
+  font-weight: 500;
 }/*# sourceMappingURL=TemperatureAndDetails.css.map */
