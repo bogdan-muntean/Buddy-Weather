@@ -55,7 +55,7 @@ function TemperatureAndDetails() {
         </div>
         <div className="edge-item">
           <UilSunset></UilSunset>
-          <p className="edge-item-text">Rasarit: <span className="edge-value">18:00</span></p>
+          <p className="edge-item-text">Apus: <span className="edge-value">18:00</span></p>
         </div>
         <div className="edge-item">
           <UilArrowDown></UilArrowDown>
