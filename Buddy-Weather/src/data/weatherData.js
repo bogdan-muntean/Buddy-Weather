@@ -23,7 +23,6 @@ const getForecastWeatherData = (searchParams) => {
 //functiile pentru formatarea datelor
 const formatCurrentWeather = (data) => {
   console.log("current weather data: ", data);
-
   const {
     coord: { lat, lon },
     main: { temp, feels_like, temp_min, temp_max, humidity },
@@ -35,6 +34,7 @@ const formatCurrentWeather = (data) => {
   } = data;
 
   const { main: details, icon } = weather[0];
+  const localTimeText = formatCurrentLocalTime(dt)
 
   return {
     lat,
@@ -52,6 +52,7 @@ const formatCurrentWeather = (data) => {
     speed,
     details,
     icon,
+    localTimeText
   };
 };
 
@@ -68,9 +69,7 @@ const formatForecastWeather = (data) => {
   let startIndexDay = time_d.indexOf(
     DateTime.fromISO(`${currentTime}`).toFormat("yyyy-MM-dd")
   );
-  console.log("startIndexHour: ", startIndexHour);
-  console.log("startIndexDay: ", startIndexDay);
-
+  console.log("startIndexHour: ", startIndexHour, + "; startIndexDay: ", startIndexDay);
   //Incepem indexHour de la minim 1, pentru ca 0 avem deja, este ora curenta.
   //startIndexHour si Day sunt pentru a putea alege alt range pe viitor daca user-ul doreste 
   //sa vada un range custom.
@@ -92,7 +91,7 @@ const formatForecastWeather = (data) => {
         icon: temperature_2m[startIndexHour + index],
       };
     });
-  return { dailyForecast, hourlyForecast };
+  return { timezone, dailyForecast, hourlyForecast };
 };
 
 //Functia ce ofera datele prelucrate catre App
@@ -124,9 +123,12 @@ const formatForecastTime = (time, zone, format) =>
   DateTime.fromISO(time).setZone(zone).toFormat(format);
 
 const formatCurrentLocalTime = (
-  sec,
+  dt,
   zone,
-  format = "cccc, dd LLL yyyy' | Ora locala: 'hh:mm a"
-) => DateTime.fromSeconds(sec).setZone(zone).toFormat(format);
+  format = "cccc, dd LLL yyyy' | Ora locala: 'hh:mm"
+) => DateTime.fromSeconds(dt).setZone(zone).toFormat(format);
+
+//url for icons
+// const iconUrlFromCode
 
 export default getFormattedWeatherData;
