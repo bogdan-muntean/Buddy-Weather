@@ -5,15 +5,15 @@ const BASE_URL = "https://api.openweathermap.org/data/2.5";
 //https://open-meteo.com/
 const OPEN_METEO = "https://api.open-meteo.com/v1/forecast";
 
-//functia GET
-const getWeatherData = (infoType, searchParams) => {
+//functiile GET
+const getCurrentWeatherData = (infoType, searchParams) => {
   const url = new URL(BASE_URL + "/" + infoType);
   url.search = new URLSearchParams({ ...searchParams, appid: API_KEY });
   console.log("url currentWeather: ", url);
   return fetch(url).then((res) => res.json());
 };
 
-const getWeatherDataOpenMeteo = (searchParams) => {
+const getForecastWeatherData = (searchParams) => {
   const url = new URL(OPEN_METEO + "/");
   url.search = new URLSearchParams({ ...searchParams });
   console.log("url forcastWeather: ", url);
@@ -57,65 +57,73 @@ const formatCurrentWeather = (data) => {
 
 const formatForecastWeather = (data) => {
   console.log("forecast data: ", data);
-  let { 
-    timezone, 
-    daily: {
-      time: time_d, 
-      weathercode: weathercode_d,
-      temperature_2m_max
-    }, 
-    hourly: {
-      time: time_h, 
-      weathercode: weathercode_h, 
-      temperature_2m},
+  let {
+    timezone,
+    daily: { time: time_d, weathercode: weathercode_d, temperature_2m_max },
+    hourly: { time: time_h, weathercode: weathercode_h, temperature_2m },
+    current_weather: { time: currentTime },
   } = data;
-  //Incepem de la 1 pentru ca 0 avem deja, este ziua curenta.
-  daily = time_d.slice(1, 7).map((element) => {
-    return {
-      title: formatToLocalTime(element.dt, timezone, "ccc"),
-      temp: element.temp.day,
-      icon: element.weather[0],
-    };
-  });
 
-  hourly = time_h.slice(1, 7).map((element) => {
-    //Incepem de la 1 pentru ca 0 avem deja, este ziua curenta.
-    return {
-      title: formatToLocalTime(element.dt, timezone, "hh:mm a"),
-      temp: element.temp.day,
-      icon: element.weather[0],
-    };
-  });
-  return { timezone, daily, hourly };
+  let startIndexHour = time_h.indexOf(`${currentTime}`);
+  let startIndexDay = time_d.indexOf(
+    DateTime.fromISO(`${currentTime}`).toFormat("yyyy-MM-dd")
+  );
+  console.log("startIndexHour: ", startIndexHour);
+  console.log("startIndexDay: ", startIndexDay);
+
+  //Incepem indexHour de la minim 1, pentru ca 0 avem deja, este ora curenta.
+  //startIndexHour si Day sunt pentru a putea alege alt range pe viitor daca user-ul doreste 
+  //sa vada un range custom.
+  let dailyForecast = time_d
+    .slice(startIndexDay + 1, startIndexDay + 9)
+    .map((day, index) => {
+      return {
+        title: formatForecastTime(day, timezone, "ccc"),
+        temp: temperature_2m_max[startIndexDay + index],
+        icon: weathercode_d[startIndexDay + index],
+      };
+    });
+  let hourlyForecast = time_h
+    .slice(startIndexHour + 1, startIndexHour + 9)
+    .map((hour, index) => {
+      return {
+        title: formatForecastTime(hour, timezone, "hh:mm"),
+        temp: weathercode_h[startIndexHour + index],
+        icon: temperature_2m[startIndexHour + index],
+      };
+    });
+  return { dailyForecast, hourlyForecast };
 };
 
 //Functia ce ofera datele prelucrate catre App
 const getFormattedWeatherData = async (searchParams) => {
-  const formattedCurrentWeather = await getWeatherData(
+  const formattedCurrentWeather = await getCurrentWeatherData(
     "weather",
     searchParams
   ).then((data) => formatCurrentWeather(data));
 
-  const { 
-    lat: latitude, 
-    lon: longitude 
-  } = formattedCurrentWeather;
+  const { lat: latitude, lon: longitude } = formattedCurrentWeather;
   console.log("latitude and longitude: ", latitude, longitude);
 
-  const formattedForecastWeather = await getWeatherDataOpenMeteo({
+  const formattedForecastWeather = await getForecastWeatherData({
     latitude,
     longitude,
+    temperature_unit: "celsius",
     timezone: "auto",
-    forecast_days: 16,
+    forecast_days: 7,
+    current_weather: true,
     hourly: ["temperature_2m", "weathercode"],
-    daily: ["temperature_2m_max", "weathercode"]
+    daily: ["temperature_2m_max", "weathercode"],
   }).then((data) => formatForecastWeather(data));
 
   return { ...formattedCurrentWeather, ...formattedForecastWeather };
 };
 
-//format creat cu luxon
-const formatToLocalTime = (
+//formate pentru timp, creat cu luxon
+const formatForecastTime = (time, zone, format) =>
+  DateTime.fromISO(time).setZone(zone).toFormat(format);
+
+const formatCurrentLocalTime = (
   sec,
   zone,
   format = "cccc, dd LLL yyyy' | Ora locala: 'hh:mm a"
