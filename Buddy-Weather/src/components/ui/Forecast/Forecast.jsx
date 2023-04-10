@@ -6,7 +6,7 @@ function Forecast() {
   return (
     <div className="forecast-container">
       <div className="forecast-title">
-        <p className="forecast-title-text">Prognoza Orei</p>
+        <p className="forecast-title-text">Hourly Forecast</p>
       </div>
       <hr className="forecast-line-break"></hr>
       <div className="forecast-timestamp-container">

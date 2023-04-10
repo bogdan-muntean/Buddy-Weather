@@ -6,7 +6,7 @@ function Inputs() {
   return (
     <div className='inputs-container'>
         <div className='search-container'>
-            <input className='search-bar' type='text' placeholder='Cauta orasul...'></input>
+            <input className='search-bar' type='text' placeholder='search for city...'></input>
             <UilSearchAlt className='search-icon' size={30} id='first-icon'></UilSearchAlt>
             <UilLocationPinAlt className='search-icon' size={30}></UilLocationPinAlt>
         </div>

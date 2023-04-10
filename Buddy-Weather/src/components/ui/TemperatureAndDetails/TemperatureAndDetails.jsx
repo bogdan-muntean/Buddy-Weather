@@ -11,7 +11,7 @@ import Droplets from "../../../assets/weather-images/Droplets.png";
 function TemperatureAndDetails() {
   return (
     <div className="temp-detail-container">
-      <div className="detail">Insorit</div>
+      <div className="detail">Sunny</div>
       <div className="temp-container">
         <div
           className="temp-icon-principal"
@@ -25,7 +25,7 @@ function TemperatureAndDetails() {
               style={{ backgroundImage: `url(${Thermometer})` }}
             ></div>
             <p>
-              Temp. resimtita: <span className="temp-bonus-item-span">32°</span>
+              Real fell: <span className="temp-bonus-item-span">32°</span>
             </p>
           </div>
           <div className="temp-bonus-item">
@@ -34,7 +34,7 @@ function TemperatureAndDetails() {
               style={{ backgroundImage: `url(${Droplets})` }}
             ></div>
             <p>
-              Umiditate: <span className="temp-bonus-item-span">35%</span>
+              Humidity: <span className="temp-bonus-item-span">35%</span>
             </p>
           </div>
           <div className="temp-bonus-item">
@@ -43,7 +43,7 @@ function TemperatureAndDetails() {
               style={{ backgroundImage: `url(${Wind})` }}
             ></div>
             <p>
-              Vant: <span className="temp-bonus-item-span">10 km/h</span>
+              Wind: <span className="temp-bonus-item-span">10 km/h</span>
             </p>
           </div>
         </div>
@@ -51,19 +51,19 @@ function TemperatureAndDetails() {
       <div className="edges-container">
         <div className="edge-item">
           <UilSun></UilSun>
-          <p className="edge-item-text">Rasarit: <span className="edge-value">06:00</span></p>
+          <p className="edge-item-text">Rise: <span className="edge-value">06:00</span></p>
         </div>
         <div className="edge-item">
           <UilSunset></UilSunset>
-          <p className="edge-item-text">Apus: <span className="edge-value">18:00</span></p>
+          <p className="edge-item-text">Set: <span className="edge-value">18:00</span></p>
         </div>
         <div className="edge-item">
           <UilArrowDown></UilArrowDown>
-          <p className="edge-item-text">Maxime: <span className="edge-value">34°</span></p>
+          <p className="edge-item-text">High: <span className="edge-value">34°</span></p>
         </div>
         <div className="edge-item">
           <UilArrowUp></UilArrowUp>
-          <p className="edge-item-text">Minime: <span className="edge-value">25°</span></p>
+          <p className="edge-item-text">Low: <span className="edge-value">25°</span></p>
         </div>
       </div>
     </div>

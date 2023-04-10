@@ -62,7 +62,7 @@ const formatForecastWeather = (data) => {
     timezone,
     daily: { time: time_d, weathercode: weathercode_d, temperature_2m_max },
     hourly: { time: time_h, weathercode: weathercode_h, temperature_2m },
-    current_weather: { time: currentTime },
+    current_weather: { time: currentTime, weathercode: weathercode_current },
   } = data;
 
   let startIndexHour = time_h.indexOf(`${currentTime}`);
@@ -91,7 +91,7 @@ const formatForecastWeather = (data) => {
         icon: temperature_2m[startIndexHour + index],
       };
     });
-  return { timezone, dailyForecast, hourlyForecast };
+  return { timezone, weathercode_current, dailyForecast, hourlyForecast };
 };
 
 //Functia ce ofera datele prelucrate catre App
@@ -125,10 +125,7 @@ const formatForecastTime = (time, zone, format) =>
 const formatCurrentLocalTime = (
   dt,
   zone,
-  format = "cccc, dd LLL yyyy' | Ora locala: 'hh:mm"
+  format = "cccc, dd LLL yyyy'   Local hour: 'hh:mm"
 ) => DateTime.fromSeconds(dt).setZone(zone).toFormat(format);
-
-//url for icons
-// const iconUrlFromCode
 
 export default getFormattedWeatherData;
