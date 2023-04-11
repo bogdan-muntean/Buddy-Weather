@@ -70,15 +70,17 @@ html {
 .forecast-timestamp-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 5px;
 }
 
 .forecast-timestamp-item {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  width: 100%;
   gap: 5px;
 }
 
@@ -98,4 +100,10 @@ html {
 
 .forecast-timestamp-item-temperature {
   font-weight: 500;
+}
+
+.forecast-timestamp-item-description {
+  width: -moz-min-content;
+  width: min-content;
+  text-align: center;
 }/*# sourceMappingURL=Forecast.css.map */

@@ -72,7 +72,7 @@ const formatForecastWeather = (data) => {
   //startIndexHour si Day sunt pentru a putea alege alt range pe viitor daca user-ul doreste 
   //sa vada un range custom.
   let dailyForecast = time_d
-    .slice(startIndexDay + 1, startIndexDay + 9)
+    .slice(startIndexDay + 1, startIndexDay + 7)
     .map((day, i) => {
       let checkIconProps = checkIconWeatherCode(weathercode_d[startIndexDay + i], 1)
       return {
@@ -84,7 +84,7 @@ const formatForecastWeather = (data) => {
       };
     });
   let hourlyForecast = time_h
-    .slice(startIndexHour, startIndexHour + 9)
+    .slice(startIndexHour, startIndexHour + 6)
     .map((hour, i) => {
       let checkIconProps = checkIconWeatherCode(weathercode_h[startIndexHour + i], is_day_h[startIndexHour + i])
       return {

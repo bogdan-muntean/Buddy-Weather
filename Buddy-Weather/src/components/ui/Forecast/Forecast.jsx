@@ -3,8 +3,7 @@ import "./Forecast.css";
 import ImageSun from "../../../assets/weather-images/Sun.png";
 
 function Forecast({ title, forecastData }) {
-  console.log(forecastData)
-  return (
+return (
     <div className="forecast-container">
       <div className="forecast-title">
         <p className="forecast-title-text">{title}</p>
@@ -19,6 +18,7 @@ function Forecast({ title, forecastData }) {
               style={{ backgroundImage: `url(../../../../public/weather-img-code/${item.checkIconProps.day}/${item.checkIconProps.icon}.png)` }}
             ></div>
             <p className="forecast-timestamp-item-temperature">{`${item.temp.toFixed()}°`}</p>
+            <p className="forecast-timestamp-item-description">{`${item.checkIconProps.description}`}</p>
           </div>
         ))}
       </div>
