@@ -80,12 +80,12 @@ const formatForecastWeather = (data) => {
       };
     });
   let hourlyForecast = time_h
-    .slice(startIndexHour + 1, startIndexHour + 9)
+    .slice(startIndexHour, startIndexHour + 9)
     .map((hour, index) => {
       return {
-        title: formatForecastTime(hour, timezone, "hh:mm"),
-        temp: weathercode_h[startIndexHour + index],
-        icon: temperature_2m[startIndexHour + index],
+        title: formatForecastTime(hour, timezone, "HH:mm"),
+        temp: temperature_2m[startIndexHour + index],
+        icon: weathercode_h[startIndexHour + index],
       };
     });
   return { timezone, weathercode_current, dailyForecast, hourlyForecast };
