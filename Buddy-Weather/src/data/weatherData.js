@@ -14,9 +14,9 @@ const getCurrentWeatherData = (infoType, searchParams) => {
   return fetch(url).then((res) => res.json());
 };
 
-const getForecastWeatherData = (searchParams) => {
+const getForecastWeatherData = (searchParams, unitTemperature) => {
   const url = new URL(OPEN_METEO + "/");
-  url.search = new URLSearchParams({ ...searchParams });
+  url.search = new URLSearchParams({ ...searchParams, unitTemperature });
   console.log("url forcastWeather: ", url);
   return fetch(url).then((res) => res.json());
 };
@@ -29,6 +29,7 @@ const formatCurrentWeather = (data) => {
     main: { temp, feels_like, temp_min, temp_max, humidity },
     name,
     dt,
+    units,
     sys: { country, sunrise, sunset },
     weather,
     wind: { speed },
@@ -46,11 +47,12 @@ const formatCurrentWeather = (data) => {
     humidity,
     name,
     dt,
+    units,
     country,
     sunrise,
     sunset,
     speed,
-    details
+    details,
   };
 };
 
@@ -58,23 +60,37 @@ const formatForecastWeather = (data) => {
   console.log("forecast data: ", data);
   let {
     timezone,
-    current_weather: { time: currentTime, weathercode: weathercode_current , is_day: is_day_current },
-    hourly: { time: time_h, weathercode: weathercode_h, temperature_2m, is_day: is_day_h},
-    daily: { time: time_d, weathercode: weathercode_d, temperature_2m_max},
+    current_weather: {
+      time: currentTime,
+      weathercode: weathercode_current,
+      is_day: is_day_current,
+    },
+    hourly: {
+      time: time_h,
+      weathercode: weathercode_h,
+      temperature_2m,
+      is_day: is_day_h,
+    },
+    daily: { time: time_d, weathercode: weathercode_d, temperature_2m_max },
   } = data;
 
   let startIndexHour = time_h.indexOf(`${currentTime}`);
   let startIndexDay = time_d.indexOf(
     DateTime.fromISO(`${currentTime}`).toFormat("yyyy-MM-dd")
   );
-  console.log("startIndexHour: " + startIndexHour + "; startIndexDay: " + startIndexDay);
+  console.log(
+    "startIndexHour: " + startIndexHour + "; startIndexDay: " + startIndexDay
+  );
   //Incepem indexHour de la minim 1, pentru ca 0 avem deja, este ora curenta.
-  //startIndexHour si Day sunt pentru a putea alege alt range pe viitor daca user-ul doreste 
+  //startIndexHour si Day sunt pentru a putea alege alt range pe viitor daca user-ul doreste
   //sa vada un range custom.
   let dailyForecast = time_d
     .slice(startIndexDay + 1, startIndexDay + 7)
     .map((day, i) => {
-      let checkIconProps = checkIconWeatherCode(weathercode_d[startIndexDay + i], 1)
+      let checkIconProps = checkIconWeatherCode(
+        weathercode_d[startIndexDay + i],
+        1
+      );
       return {
         title: formatForecastTime(day, timezone, "ccc"),
         temp: temperature_2m_max[startIndexDay + i],
@@ -86,7 +102,10 @@ const formatForecastWeather = (data) => {
   let hourlyForecast = time_h
     .slice(startIndexHour, startIndexHour + 6)
     .map((hour, i) => {
-      let checkIconProps = checkIconWeatherCode(weathercode_h[startIndexHour + i], is_day_h[startIndexHour + i])
+      let checkIconProps = checkIconWeatherCode(
+        weathercode_h[startIndexHour + i],
+        is_day_h[startIndexHour + i]
+      );
       return {
         title: formatForecastTime(hour, timezone, "HH:mm"),
         temp: temperature_2m[startIndexHour + i],
@@ -95,23 +114,36 @@ const formatForecastWeather = (data) => {
         is_day: is_day_h[startIndexHour + i],
       };
     });
-  return { timezone, weathercode_current, is_day_current, dailyForecast, hourlyForecast };
+  return {
+    timezone,
+    weathercode_current,
+    is_day_current,
+    dailyForecast,
+    hourlyForecast,
+  };
 };
 
 //Functia ce ofera datele prelucrate catre App
-const getFormattedWeatherData = async (searchParams) => {
+const getFormattedWeatherData = async (searchParams, unitTime) => {
+  //Am adaptat metoda de masurare de la OpenWeather la OpenMeteo
   const formattedCurrentWeather = await getCurrentWeatherData(
     "weather",
-    searchParams
+    searchParams,
   ).then((data) => formatCurrentWeather(data));
 
   const { lat: latitude, lon: longitude } = formattedCurrentWeather;
   console.log("latitude and longitude: ", latitude, longitude);
+  console.log(unitTime)
+  if (unitTime == "metric") {
+    unitTime = "celsius";
+  } else if (unitTime == "imperial") {
+    unitTime = "fahrenheit";
+  }
 
   const formattedForecastWeather = await getForecastWeatherData({
     latitude,
     longitude,
-    temperature_unit: "celsius",
+    temperature_unit: `${unitTime}`,
     timezone: "auto",
     forecast_days: 7,
     current_weather: true,
@@ -127,12 +159,9 @@ const getFormattedWeatherData = async (searchParams) => {
 const formatForecastTime = (time, zone, format) =>
   DateTime.fromISO(time).setZone(zone).toFormat(format);
 
-const formatToLocalTime = (
-  dt,
-  zone,
-  format
-) => DateTime.fromSeconds(dt).setZone(zone).toFormat(format);
+const formatToLocalTime = (dt, zone, format) =>
+  DateTime.fromSeconds(dt).setZone(zone).toFormat(format);
 
 export default getFormattedWeatherData;
 
-export {formatToLocalTime}
+export { formatToLocalTime };

@@ -16,18 +16,18 @@ function App() {
 
   useEffect(() => {
     const fetchWeather = async () => {
-      await getFormattedWeatherData({ ...query, units }).then((data) => {
+      await getFormattedWeatherData({ ...query, units: units }, units).then((data) => {
         setWeather(data);
       });
     };
     fetchWeather();
   }, [query, units]);
-  console.log("all data collected: ", weather);
+  console.log("all data collected until now: ", weather);
 
   return (
     <div className="App">
-      <TopButtons></TopButtons>
-      <Inputs></Inputs>
+      <TopButtons setQuery={setQuery}></TopButtons>
+      <Inputs setQuery={setQuery} units={units} setUnits={setUnits}></Inputs>
       {weather && (
         <>
           <TimeAndLocation weather = {weather}></TimeAndLocation>
@@ -41,3 +41,4 @@ function App() {
 }
 
 export default App;
+

@@ -1,19 +1,19 @@
 :root {
+  //var title size
+  --font-size-title: 23px;
+  --font-size-big-title: calc(var(--font-size-title) + 7px);
+  --font-size-subtitle: calc(var(--font-size-title) - 5px);
+
   //var font size text
   --font-size-default: 17px;
   --font-size-default-hover: calc(var(--font-size-default) + 1px);
 
+  //var line height size
+  --line-height-default: calc(var(--font-size-default) + 3px);
+
   //var icons size
 
-  //var title size
-  --font-size-subtitle: 18px;
-  --font-size-big-title: calc(var(--font-size-subtitle) + 12px);
-  --font-size-title: calc(var(--font-size-subtitle) + 5px);
-
   //var photo size
-
-  //var line height size
-  --line-height-default: 26px;
 
   // gap value
 
