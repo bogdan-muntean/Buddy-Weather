@@ -1,5 +1,7 @@
 import React from "react";
 import "./TemperatureAndDetails.css";
+import checkIconWeatherCode from "../../../utils/checkIconWeatherCode";
+
 import { formatToLocalTime } from "../../../data/weatherData";
 import {
   UilSun,
@@ -7,7 +9,7 @@ import {
   UilArrowDown,
   UilArrowUp,
 } from "@iconscout/react-unicons";
-import ImagePrincipal from "../../../../public/weather-img-code/day/Clear-clear_sky.64.png";
+import ImagePrincipal from "../../../../public/weather-img-code/day/Clear-clear_sky.png";
 import Thermometer from "../../../assets/weather-images/Thermometer.png";
 import Wind from "../../../assets/weather-images/Wind.png";
 import Droplets from "../../../assets/weather-images/Droplets.png";
@@ -15,7 +17,8 @@ import Droplets from "../../../assets/weather-images/Droplets.png";
 function TemperatureAndDetails({
   weather: {
     details,
-    icon,
+    weathercode_current,
+    is_day_current,
     temp,
     temp_min,
     temp_max,
@@ -27,17 +30,21 @@ function TemperatureAndDetails({
     timezone,
   },
 }) {
+
+  const weatherPropsCurrent = checkIconWeatherCode(weathercode_current, is_day_current)
+  console.log(weatherPropsCurrent)
+
   return (
     <div className="temp-detail-container">
       <div className="detail">
         <p>
-        {details}
+        {weatherPropsCurrent.description}
         </p>
       </div>
       <div className="temp-container">
         <div
           className="temp-icon-principal"
-          style={{ backgroundImage: `url(${ImagePrincipal})` }}
+          style={{ backgroundImage: `url(../../../../public/weather-img-code/${weatherPropsCurrent.day}/${weatherPropsCurrent.icon}.png)` }}
         ></div>
         <p className="temp-temperature">{`${temp.toFixed()}°`}</p>
         <div className="temp-bonus-container">

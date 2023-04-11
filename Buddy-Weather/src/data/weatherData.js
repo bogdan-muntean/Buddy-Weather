@@ -1,4 +1,5 @@
 import { DateTime } from "luxon";
+import checkIconWeatherCode from "../utils/checkIconWeatherCode";
 
 const API_KEY = "43975e5e5a38035d9a4bd44dff2378d3";
 const BASE_URL = "https://api.openweathermap.org/data/2.5";
@@ -57,9 +58,9 @@ const formatForecastWeather = (data) => {
   console.log("forecast data: ", data);
   let {
     timezone,
-    daily: { time: time_d, weathercode: weathercode_d, temperature_2m_max },
-    hourly: { time: time_h, weathercode: weathercode_h, temperature_2m },
-    current_weather: { time: currentTime, weathercode: weathercode_current },
+    current_weather: { time: currentTime, weathercode: weathercode_current , is_day: is_day_current },
+    hourly: { time: time_h, weathercode: weathercode_h, temperature_2m, is_day: is_day_h},
+    daily: { time: time_d, weathercode: weathercode_d, temperature_2m_max},
   } = data;
 
   let startIndexHour = time_h.indexOf(`${currentTime}`);
@@ -72,23 +73,29 @@ const formatForecastWeather = (data) => {
   //sa vada un range custom.
   let dailyForecast = time_d
     .slice(startIndexDay + 1, startIndexDay + 9)
-    .map((day, index) => {
+    .map((day, i) => {
+      let checkIconProps = checkIconWeatherCode(weathercode_d[startIndexDay + i], 1)
       return {
         title: formatForecastTime(day, timezone, "ccc"),
-        temp: temperature_2m_max[startIndexDay + index],
-        icon: weathercode_d[startIndexDay + index],
+        temp: temperature_2m_max[startIndexDay + i],
+        checkIconProps,
+        iconCode: weathercode_d[startIndexDay + i],
+        is_day: 1,
       };
     });
   let hourlyForecast = time_h
     .slice(startIndexHour, startIndexHour + 9)
-    .map((hour, index) => {
+    .map((hour, i) => {
+      let checkIconProps = checkIconWeatherCode(weathercode_h[startIndexHour + i], is_day_h[startIndexHour + i])
       return {
         title: formatForecastTime(hour, timezone, "HH:mm"),
-        temp: temperature_2m[startIndexHour + index],
-        icon: weathercode_h[startIndexHour + index],
+        temp: temperature_2m[startIndexHour + i],
+        checkIconProps,
+        iconCode: weathercode_h,
+        is_day: is_day_h[startIndexHour + i],
       };
     });
-  return { timezone, weathercode_current, dailyForecast, hourlyForecast };
+  return { timezone, weathercode_current, is_day_current, dailyForecast, hourlyForecast };
 };
 
 //Functia ce ofera datele prelucrate catre App
@@ -108,7 +115,8 @@ const getFormattedWeatherData = async (searchParams) => {
     timezone: "auto",
     forecast_days: 7,
     current_weather: true,
-    hourly: ["temperature_2m", "weathercode"],
+    is_day: true,
+    hourly: ["temperature_2m", "weathercode", "is_day"],
     daily: ["temperature_2m_max", "weathercode"],
   }).then((data) => formatForecastWeather(data));
 

@@ -3,6 +3,7 @@ import "./Forecast.css";
 import ImageSun from "../../../assets/weather-images/Sun.png";
 
 function Forecast({ title, forecastData }) {
+  console.log(forecastData)
   return (
     <div className="forecast-container">
       <div className="forecast-title">
@@ -10,12 +11,12 @@ function Forecast({ title, forecastData }) {
       </div>
       <hr className="forecast-line-break"></hr>
       <div className="forecast-timestamp-container">
-        {forecastData.map((item) => (
-          <div className="forecast-timestamp-item">
+        {forecastData.map((item, index) => (
+          <div className="forecast-timestamp-item" key={index}>
             <p className="forecast-timestamp-item-title">{item.title}</p>
             <div
               className="forecast-timestamp-item-image"
-              style={{ backgroundImage: `url(${ImageSun})` }}
+              style={{ backgroundImage: `url(../../../../public/weather-img-code/${item.checkIconProps.day}/${item.checkIconProps.icon}.png)` }}
             ></div>
             <p className="forecast-timestamp-item-temperature">{`${item.temp.toFixed()}°`}</p>
           </div>

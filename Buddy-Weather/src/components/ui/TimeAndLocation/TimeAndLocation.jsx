@@ -9,7 +9,7 @@ function TimeAndLocation({weather: {dt, timezone, name, country}}) {
         <p>{`${name}, ${country}`}</p>
       </div>
       <div className="date-hour">
-        <p>{`${formatToLocalTime(dt, timezone, "cccc, dd LLL yyyy' |  Local hour  'hh:mm")}`}</p>
+        <p>{`${formatToLocalTime(dt, timezone, "cccc, dd LLL yyyy' | Local hour  'HH:mm")}`}</p>
       </div>
       
     </div>

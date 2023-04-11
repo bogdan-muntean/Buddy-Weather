@@ -1,9 +1,9 @@
-const checkIconWeatherCode = (code, night) => {
-    //night va fi bool, 0 = day, 1 = night
-    if(night){
-        night = "night";
+const checkIconWeatherCode = (code, day) => {
+    //night va fi bool, 1 = day, 0 = night
+    if(day){
+        day = "day";
     } else {
-        night = "day";
+        day = "night";
     }
     //voi returna obiect cu properties pe care le folosesc in UI in acel moment.
     let icon, description;
@@ -125,6 +125,8 @@ const checkIconWeatherCode = (code, night) => {
     return {
         description,
         icon,
-        night
+        day
     }
 }
+
+export default checkIconWeatherCode
