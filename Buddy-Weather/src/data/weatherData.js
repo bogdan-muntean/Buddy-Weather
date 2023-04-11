@@ -33,8 +33,7 @@ const formatCurrentWeather = (data) => {
     wind: { speed },
   } = data;
 
-  const { main: details, icon } = weather[0];
-  const localTimeText = formatCurrentLocalTime(dt)
+  const { main: details } = weather[0];
 
   return {
     lat,
@@ -50,9 +49,7 @@ const formatCurrentWeather = (data) => {
     sunrise,
     sunset,
     speed,
-    details,
-    icon,
-    localTimeText
+    details
   };
 };
 
@@ -69,7 +66,7 @@ const formatForecastWeather = (data) => {
   let startIndexDay = time_d.indexOf(
     DateTime.fromISO(`${currentTime}`).toFormat("yyyy-MM-dd")
   );
-  console.log("startIndexHour: ", startIndexHour, + "; startIndexDay: ", startIndexDay);
+  console.log("startIndexHour: " + startIndexHour + "; startIndexDay: " + startIndexDay);
   //Incepem indexHour de la minim 1, pentru ca 0 avem deja, este ora curenta.
   //startIndexHour si Day sunt pentru a putea alege alt range pe viitor daca user-ul doreste 
   //sa vada un range custom.
@@ -122,10 +119,12 @@ const getFormattedWeatherData = async (searchParams) => {
 const formatForecastTime = (time, zone, format) =>
   DateTime.fromISO(time).setZone(zone).toFormat(format);
 
-const formatCurrentLocalTime = (
+const formatToLocalTime = (
   dt,
   zone,
-  format = "cccc, dd LLL yyyy'   Local hour: 'hh:mm"
+  format
 ) => DateTime.fromSeconds(dt).setZone(zone).toFormat(format);
 
 export default getFormattedWeatherData;
+
+export {formatToLocalTime}
