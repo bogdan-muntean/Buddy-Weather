@@ -7,7 +7,7 @@ import {
   UilArrowDown,
   UilArrowUp,
 } from "@iconscout/react-unicons";
-import ImageSun from "../../../assets/weather-images/Sun.png";
+import ImagePrincipal from "../../../../public/weather-img-code/day/Clear-clear_sky.64.png";
 import Thermometer from "../../../assets/weather-images/Thermometer.png";
 import Wind from "../../../assets/weather-images/Wind.png";
 import Droplets from "../../../assets/weather-images/Droplets.png";
@@ -37,7 +37,7 @@ function TemperatureAndDetails({
       <div className="temp-container">
         <div
           className="temp-icon-principal"
-          style={{ backgroundImage: `url(${ImageSun})` }}
+          style={{ backgroundImage: `url(${ImagePrincipal})` }}
         ></div>
         <p className="temp-temperature">{`${temp.toFixed()}°`}</p>
         <div className="temp-bonus-container">
