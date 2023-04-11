@@ -1,15 +1,20 @@
 :root {
-  //var title size
-  --font-size-title: 23px;
-  --font-size-big-title: calc(var(--font-size-title) + 7px);
-  --font-size-subtitle: calc(var(--font-size-title) - 5px);
-
   //var font size text
-  --font-size-default: 17px;
+  --font-size-default: 18px;
   --font-size-default-hover: calc(var(--font-size-default) + 1px);
+  --font-size-top-buttons: calc(var(--font-size-default) + 8px);
+  --font-size-input-unit: calc(var(--font-size-default) + 10px);
+  --font-size-details: calc(var(--font-size-default) + 4px);
+  --font-size-temperature-principal: calc(var(--font-size-default) + 27px);
 
   //var line height size
-  --line-height-default: calc(var(--font-size-default) + 3px);
+  --line-height-default: calc(var(--font-size-default) + 5px);
+  --line-height-top-buttons: calc(var(--font-size-top-buttons) + 5px)
+
+    //var title size
+    --font-size-big-title: calc(var(--font-size-default) + 13px);
+    --font-size-title: calc(var(--font-size-default) + 6px);
+    --font-size-subtitle: calc(var(--font-size-default) + 4px);
 
   //var icons size
 
@@ -42,22 +47,11 @@
 }
 
 //Mixins
-@mixin orizontal-line-above {
-  content: "";
-  display: block;
-  width: 70%;
-  height: 1px;
-  position: relative;
-  left: 50%;
-  bottom: 20px;
-  background-color: var(--color-grey-5);
-  transform: translateX(-50%);
-}
-@mixin vertical-center {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
+// @mixin horizontal-scroll-wrapper {
+//   height: 300px;
+//   overflow-y: auto;
+//   overflow-x: hidden;
+// }
 
 // ############ Variables and Mixins - Media Query ############
 // :root {

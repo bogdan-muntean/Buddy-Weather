@@ -5,16 +5,17 @@
 }
 .detail {
   padding: 24px 0px;
-  font-size: 20px;
+  font-size: var(--font-size-subtitle);
   line-height: 28px;
   text-align: center;
 }
 .temp-container {
   display: flex;
   padding: 12px 0px;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+  gap: 25px;
 }
 .temp-icon-principal {
   width: 100px;
@@ -24,11 +25,11 @@
   background-position: center;
 }
 .temp-temperature {
-  font-size: 50px;
+  font-size: var(--font-size-temperature-principal);
   line-height: 1;
 }
 .temp-bonus-container {
-  width: 200px;
+  width: 100%;
   margin-top: 8px;
   display: flex;
   flex-direction: column;
@@ -55,22 +56,27 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+.temp-bonus-paragraph {
+  font-size: var(--font-size-details);
+}
 .temp-bonus-item-span {
   margin-left: 4px;
   font-weight: 500;
 }
 .edges-container {
   display: flex;
-  padding: 15px 0px;
-  margin-top: 25px;
+  margin: 15px 0px;
+  margin-top: 25px 0px;
   font-size: 14px;
   line-height: 20px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap:15px;
 }
 .edge-item {
+  width: 40%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -79,8 +85,16 @@
 }
 .edge-item-text {
   font-weight: 300;
+  font-size: var(--font-size-details);
+  text-align: center;
 }
 .edge-value {
   margin-left: 4px;
   font-weight: 500;
+}
+
+@media screen and (min-width: 450px){
+  .edges-container{
+    flex-wrap: nowrap;
+  }
 }

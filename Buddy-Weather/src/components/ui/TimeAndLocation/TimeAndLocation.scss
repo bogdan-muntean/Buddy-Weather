@@ -1,4 +1,4 @@
-@import "../../../assets/global.scss";
+
 
 .time-location-container {
   width: 100%;
@@ -7,13 +7,15 @@
   justify-content: center;
   align-items: center;
   margin: 24px 0px;
+  font-size: var(--font-size-title);
 }
 .date-hour {
   margin-top: 15px;
   p {
-    font-size: 20px;
+    font-size: var(--font-size-subtitle);
     line-height: 28px;
     font-weight: 200;
+    text-align: center;
   }
 }
 .location {

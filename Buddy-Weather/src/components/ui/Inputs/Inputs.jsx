@@ -11,56 +11,61 @@ function Inputs({ setQuery, units, setUnits }) {
   };
 
   const handleCurrentLocation = () => {
-    if(navigator.geolocation){
+    if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         let lat = position.coords.latitude;
         let lon = position.coords.longitude;
         setQuery({
           lat,
-          lon
+          lon,
         });
-      })
+      });
     }
-  }
+  };
 
   const handleUnitsChange = (e) => {
     const selectedUnits = e.currentTarget.name;
-    if(units !== selectedUnits)
-      setUnits(selectedUnits);
-  }
+    if (units !== selectedUnits) setUnits(selectedUnits);
+  };
 
   return (
     <div className="inputs-container">
-      <div className="search-container">
-        <form
-        onSubmit={(e) => handleSearchEvent(e)}>
-          <input
-            className="search-bar"
-            value={city}
-            onChange={(e) => setCity(e.currentTarget.value)}
-            
-            type="text"
-            placeholder="search for city..."
-          ></input>
-        </form>
+      <form className="search-bar" onSubmit={(e) => handleSearchEvent(e)}>
+        <input
+          className="search-bar-input"
+          value={city}
+          onChange={(e) => setCity(e.currentTarget.value)}
+          type="text"
+          placeholder="search for city..."
+        ></input>
+      </form>
+      <div className="search-buttons-container">
         <UilSearchAlt
           className="search-icon"
           onClick={handleSearchEvent}
-          size={30}
+          size={35}
           id="first-icon"
         ></UilSearchAlt>
         <UilLocationPinAlt
           className="search-icon"
           onClick={handleCurrentLocation}
-          size={30}
+          size={35}
         ></UilLocationPinAlt>
       </div>
-      <div className="unit-container">
-        <button className="unit-option" onClick={handleUnitsChange} name="metric">
+      <div className="unit-buttons-container">
+        <button
+          className="unit-option"
+          onClick={handleUnitsChange}
+          name="metric"
+        >
           °C
         </button>
         <p className="dividing-bar"> | </p>
-        <button className="unit-option" onClick={handleUnitsChange} name="imperial">
+        <button
+          className="unit-option"
+          onClick={handleUnitsChange}
+          name="imperial"
+        >
           °F
         </button>
       </div>

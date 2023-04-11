@@ -1,11 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
 :root {
-  --font-size-default: 17px;
+  --font-size-default: 18px;
   --font-size-default-hover: calc(var(--font-size-default) + 1px);
-  --font-size-subtitle: 18px;
-  --font-size-big-title: calc(var(--font-size-subtitle) + 12px);
-  --font-size-title: calc(var(--font-size-subtitle) + 5px);
-  --line-height-default: 26px;
+  --font-size-top-buttons: calc(var(--font-size-default) + 8px);
+  --font-size-input-unit: calc(var(--font-size-default) + 10px);
+  --font-size-details: calc(var(--font-size-default) + 4px);
+  --font-size-temperature-principal: calc(var(--font-size-default) + 27px);
+  --line-height-default: calc(var(--font-size-default) + 5px);
+  --line-height-top-buttons: calc(var(--font-size-top-buttons) + 5px)
+    //var title size
+    --font-size-big-title: calc(var(--font-size-default) + 13px);
+  --font-size-title: calc(var(--font-size-default) + 6px);
+  --font-size-subtitle: calc(var(--font-size-default) + 4px);
   --color-text-primary: #000;
   --color-primary: #191d2b;
   --color-secondary: #273dae;
@@ -26,14 +32,16 @@
 
 * {
   margin: 0;
+  margin-top: 0;
   padding: 0;
   box-sizing: border-box;
   list-style: none;
   font-family: "Josefin Sans", sans-serif;
 }
 
-html {
-  height: 100vh;
+html, body, :root {
+  width: 100%;
+  height: 100%;
   font-family: "Josefin Sans", sans-serif;
   font-size: var(--font-size-default);
   transition: var(--transition-1);
@@ -42,10 +50,10 @@ html {
 
 .App {
   max-width: 100%;
-  padding: 19px 80px;
+  max-height: 100%;
+  padding: 0px 5px;
   margin: auto;
   background: linear-gradient(to bottom right, #2196f3, #90caf9);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .temp-detail-container {
@@ -54,7 +62,7 @@ html {
 
 .detail {
   padding: 24px 0px;
-  font-size: 20px;
+  font-size: var(--font-size-subtitle);
   line-height: 28px;
   text-align: center;
 }
@@ -62,9 +70,10 @@ html {
 .temp-container {
   display: flex;
   padding: 12px 0px;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+  gap: 25px;
 }
 
 .temp-icon-principal {
@@ -76,12 +85,12 @@ html {
 }
 
 .temp-temperature {
-  font-size: 50px;
+  font-size: var(--font-size-temperature-principal);
   line-height: 1;
 }
 
 .temp-bonus-container {
-  width: 200px;
+  width: 100%;
   margin-top: 8px;
   display: flex;
   flex-direction: column;
@@ -111,6 +120,10 @@ html {
   background-position: center;
 }
 
+.temp-bonus-paragraph {
+  font-size: var(--font-size-details);
+}
+
 .temp-bonus-item-span {
   margin-left: 4px;
   font-weight: 500;
@@ -118,17 +131,19 @@ html {
 
 .edges-container {
   display: flex;
-  padding: 15px 0px;
-  margin-top: 25px;
+  margin: 15px 0px;
+  margin-top: 25px 0px;
   font-size: 14px;
   line-height: 20px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 15px;
 }
 
 .edge-item {
+  width: 40%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -138,9 +153,17 @@ html {
 
 .edge-item-text {
   font-weight: 300;
+  font-size: var(--font-size-details);
+  text-align: center;
 }
 
 .edge-value {
   margin-left: 4px;
   font-weight: 500;
+}
+
+@media screen and (min-width: 450px) {
+  .edges-container {
+    flex-wrap: nowrap;
+  }
 }/*# sourceMappingURL=TemperatureAndDetails.css.map */

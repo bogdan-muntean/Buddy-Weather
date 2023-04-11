@@ -3,9 +3,10 @@
 .forecast-container {
   width: 100%;
   margin-top: 24px;
+  padding: 0px 10px;
 }
 .forecast-title {
-  font-size: 20px;
+  font-size: var(--font-size-subtitle);
 }
 .forecast-title-text {
   font-weight: 500;
@@ -15,19 +16,34 @@
   margin: 8px 0px;
 }
 .forecast-timestamp-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: stretch;
-  gap: 5px;
+  display: block;
+  width: 80px;
+  max-height: 500px;
+  padding: 5px;
+  transform:  rotate(90deg);
+  transform: rotate(-90deg) translateY(-80px);
+  transform-origin: right top;
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: flex-start;
+  // align-items: stretch;
+  // gap: 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .forecast-timestamp-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  gap: 5px;
+  width: 100px;
+  height: 100px;
+  display: block;
+  padding: 5px;
+  transform: rotate(90deg);
+  transform-origin: right top;
+  // width: 110px;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: flex-start;
+  // align-items: center;
+  // gap: 5px;
 }
 .forecast-timestamp-item-title {
   font-size: 14px;

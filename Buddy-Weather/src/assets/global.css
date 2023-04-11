@@ -1,11 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
 :root {
+  --font-size-title: 23px;
+  --font-size-big-title: calc(var(--font-size-title) + 7px);
+  --font-size-subtitle: calc(var(--font-size-title) - 5px);
   --font-size-default: 17px;
   --font-size-default-hover: calc(var(--font-size-default) + 1px);
-  --font-size-subtitle: 18px;
-  --font-size-big-title: calc(var(--font-size-subtitle) + 12px);
-  --font-size-title: calc(var(--font-size-subtitle) + 5px);
-  --line-height-default: 26px;
+  --font-size-top-buttons: calc(var(--font-size-default) + 8px);
+  --line-height-default: calc(var(--font-size-default) + 5px);
+  --line-height-top-buttons: calc(var(--font-size-top-buttons) + 10px)
+  //var icons size
+  //var photo size
+  // gap value
+  //var colors
   --color-text-primary: #000;
   --color-primary: #191d2b;
   --color-secondary: #273dae;
@@ -26,14 +32,16 @@
 
 * {
   margin: 0;
+  margin-top: 0;
   padding: 0;
   box-sizing: border-box;
   list-style: none;
   font-family: "Josefin Sans", sans-serif;
 }
 
-html {
-  height: 100vh;
+html, body, :root {
+  width: 100%;
+  height: 100%;
   font-family: "Josefin Sans", sans-serif;
   font-size: var(--font-size-default);
   transition: var(--transition-1);
@@ -42,8 +50,8 @@ html {
 
 .App {
   max-width: 100%;
-  padding: 19px 80px;
+  max-height: 100%;
+  padding: 0px 5px;
   margin: auto;
   background: linear-gradient(to bottom right, #2196f3, #90caf9);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }/*# sourceMappingURL=global.css.map */

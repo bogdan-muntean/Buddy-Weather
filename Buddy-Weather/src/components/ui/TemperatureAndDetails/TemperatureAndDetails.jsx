@@ -53,7 +53,7 @@ function TemperatureAndDetails({
               className="temp-bonus-image"
               style={{ backgroundImage: `url(${Thermometer})` }}
             ></div>
-            <p>
+            <p className="temp-bonus-paragraph">
               Real fell: <span className="temp-bonus-item-span">{`${feels_like.toFixed()}°`}</span>
             </p>
           </div>
@@ -62,7 +62,7 @@ function TemperatureAndDetails({
               className="temp-bonus-image"
               style={{ backgroundImage: `url(${Droplets})` }}
             ></div>
-            <p>
+            <p className="temp-bonus-paragraph">
               Humidity: <span className="temp-bonus-item-span">{`${humidity}%`}</span>
             </p>
           </div>
@@ -71,7 +71,7 @@ function TemperatureAndDetails({
               className="temp-bonus-image"
               style={{ backgroundImage: `url(${Wind})` }}
             ></div>
-            <p>
+            <p className="temp-bonus-paragraph">
               Wind: <span className="temp-bonus-item-span">{`${speed.toFixed()} km/h`}</span>
             </p>
           </div>

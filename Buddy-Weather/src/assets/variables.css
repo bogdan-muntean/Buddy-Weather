@@ -1,10 +1,16 @@
 :root {
-  --font-size-title: 23px;
-  --font-size-big-title: calc(var(--font-size-title) + 7px);
-  --font-size-subtitle: calc(var(--font-size-title) - 5px);
-  --font-size-default: 17px;
+  --font-size-default: 18px;
   --font-size-default-hover: calc(var(--font-size-default) + 1px);
-  --line-height-default: calc(var(--font-size-default) + 3px);
+  --font-size-top-buttons: calc(var(--font-size-default) + 8px);
+  --font-size-input-unit: calc(var(--font-size-default) + 10px);
+  --font-size-details: calc(var(--font-size-default) + 4px);
+  --font-size-temperature-principal: calc(var(--font-size-default) + 27px);
+  --line-height-default: calc(var(--font-size-default) + 5px);
+  --line-height-top-buttons: calc(var(--font-size-top-buttons) + 5px)
+    //var title size
+    --font-size-big-title: calc(var(--font-size-default) + 13px);
+  --font-size-title: calc(var(--font-size-default) + 6px);
+  --font-size-subtitle: calc(var(--font-size-default) + 4px);
   --color-text-primary: #000;
   --color-primary: #191d2b;
   --color-secondary: #273dae;
