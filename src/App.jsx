@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./assets/global.css";
-import TopButtons from "./components/ui/TopButtons/TopButtons";
-import Inputs from "./components/ui/Inputs/Inputs";
+import TopButtons from "./components/form/TopButtons/TopButtons";
+import Inputs from "./components/form/Inputs/Inputs";
 import TimeAndLocation from "./components/ui/TimeAndLocation/TimeAndLocation";
 import TemperatureAndDetails from "./components/ui/TemperatureAndDetails/TemperatureAndDetails";
 import Forecast from "./components/ui/Forecast/Forecast";
@@ -23,9 +23,20 @@ function App() {
     fetchWeather();
   }, [query, units]);
   console.log("all data collected until now: ", weather);
+  console.log("units in app.jsx: ", units)
+
+  const formatBackground = () => {
+    if(!weather) return 'b-default'
+    const limit = units  === 'metric' ? 20 : 60;
+    if(weather.temp <= limit){
+      console.log("default")
+      return 'b-default';
+    }
+    return 'b-hot';
+  }
 
   return (
-    <div className="App">
+    <div className={`App`} id={`${formatBackground()}`}>
       <TopButtons setQuery={setQuery}></TopButtons>
       <Inputs setQuery={setQuery} units={units} setUnits={setUnits}></Inputs>
       {weather && (

@@ -4,7 +4,7 @@
   --font-size-default-hover: calc(var(--font-size-default) + 1px);
   --font-size-top-buttons: calc(var(--font-size-default) + 8px);
   --font-size-input-unit: calc(var(--font-size-default) + 10px);
-  --font-size-details: calc(var(--font-size-default) + 4px);
+  --font-size-details: calc(var(--font-size-default) + 6px);
   --font-size-temperature-principal: calc(var(--font-size-default) + 27px);
 
   //var line height size
@@ -13,14 +13,18 @@
 
     //var title size
     --font-size-big-title: calc(var(--font-size-default) + 13px);
-    --font-size-title: calc(var(--font-size-default) + 6px);
-    --font-size-subtitle: calc(var(--font-size-default) + 4px);
+    --font-size-title: calc(var(--font-size-default) + 8px);
+    --font-size-subtitle: calc(var(--font-size-default) + 6px);
 
   //var icons size
-
-  //var photo size
+  --icon-size-principal: 180px;
+  --icon-size-forecast: calc(var(--icon-size-principal) - 100px); 
 
   // gap value
+  --gap-size-inputs: 5px;
+
+  //horizontal scroll bar
+
 
   //var colors
   --color-text-primary: #000;
@@ -54,7 +58,10 @@
 // }
 
 // ############ Variables and Mixins - Media Query ############
-// :root {
-//   // MAX WIDTH
-//   // MIN WIDTH
-// }
+:root {
+  // MAX WIDTH
+  // MIN WIDTH
+  @media screen and (min-width: 720px){
+    --gap-size-inputs: 30px;
+  }
+}

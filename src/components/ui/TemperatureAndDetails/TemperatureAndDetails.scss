@@ -18,8 +18,8 @@
   gap: 25px;
 }
 .temp-icon-principal {
-  width: 100px;
-  height: 100px;
+  width: var(--icon-size-principal);
+  height: var(--icon-size-principal);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -81,9 +81,16 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 5px;
 }
 .edge-item-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
   font-weight: 300;
   font-size: var(--font-size-details);
   text-align: center;

@@ -4,14 +4,16 @@
   --font-size-default-hover: calc(var(--font-size-default) + 1px);
   --font-size-top-buttons: calc(var(--font-size-default) + 8px);
   --font-size-input-unit: calc(var(--font-size-default) + 10px);
-  --font-size-details: calc(var(--font-size-default) + 4px);
+  --font-size-details: calc(var(--font-size-default) + 6px);
   --font-size-temperature-principal: calc(var(--font-size-default) + 27px);
   --line-height-default: calc(var(--font-size-default) + 5px);
   --line-height-top-buttons: calc(var(--font-size-top-buttons) + 5px)
     //var title size
     --font-size-big-title: calc(var(--font-size-default) + 13px);
-  --font-size-title: calc(var(--font-size-default) + 6px);
-  --font-size-subtitle: calc(var(--font-size-default) + 4px);
+  --font-size-title: calc(var(--font-size-default) + 8px);
+  --font-size-subtitle: calc(var(--font-size-default) + 6px);
+  --icon-size-principal: 180px;
+  --icon-size-forecast: calc(var(--icon-size-principal) - 100px);
   --color-text-primary: #000;
   --color-primary: #191d2b;
   --color-secondary: #273dae;
@@ -52,10 +54,17 @@ html, body, :root {
   max-width: 100%;
   max-height: 100%;
   padding: 0px 5px;
+  padding-bottom: 60px;
   margin: auto;
   background: linear-gradient(to bottom right, #2196f3, #90caf9);
 }
 
+@media screen and (min-width: 850px) {
+  .App {
+    padding: 15px 80px;
+    padding-bottom: 60px;
+  }
+}
 .temp-detail-container {
   width: 100%;
 }
@@ -77,8 +86,8 @@ html, body, :root {
 }
 
 .temp-icon-principal {
-  width: 100px;
-  height: 100px;
+  width: var(--icon-size-principal);
+  height: var(--icon-size-principal);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -148,10 +157,17 @@ html, body, :root {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 5px;
 }
 
 .edge-item-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
   font-weight: 300;
   font-size: var(--font-size-details);
   text-align: center;

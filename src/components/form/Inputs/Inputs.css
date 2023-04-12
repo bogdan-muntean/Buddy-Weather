@@ -1,19 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
 :root {
-  --font-size-title: 23px;
-  --font-size-big-title: calc(var(--font-size-title) + 7px);
-  --font-size-subtitle: calc(var(--font-size-title) - 5px);
-  --font-size-default: 17px;
+  --font-size-default: 18px;
   --font-size-default-hover: calc(var(--font-size-default) + 1px);
   --font-size-top-buttons: calc(var(--font-size-default) + 8px);
-  --font-size-input-unit: calc(var(--font-size-default) + 10px)
-  //var line height size
+  --font-size-input-unit: calc(var(--font-size-default) + 10px);
+  --font-size-details: calc(var(--font-size-default) + 6px);
+  --font-size-temperature-principal: calc(var(--font-size-default) + 27px);
   --line-height-default: calc(var(--font-size-default) + 5px);
   --line-height-top-buttons: calc(var(--font-size-top-buttons) + 5px)
-  //var icons size
-  //var photo size
-  // gap value
-  //var colors
+    //var title size
+    --font-size-big-title: calc(var(--font-size-default) + 13px);
+  --font-size-title: calc(var(--font-size-default) + 8px);
+  --font-size-subtitle: calc(var(--font-size-default) + 6px);
+  --icon-size-principal: 180px;
+  --icon-size-forecast: calc(var(--icon-size-principal) - 100px);
+  --gap-size-inputs: 5px;
   --color-text-primary: #000;
   --color-primary: #191d2b;
   --color-secondary: #273dae;
@@ -30,6 +31,12 @@
   --br-circle: 50%;
   --box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
   --transition-1: all 0.4s ease-in-out;
+}
+
+@media screen and (min-width: 720px) {
+  :root {
+    --gap-size-inputs: 30px;
+  }
 }
 
 * {
@@ -54,10 +61,24 @@ html, body, :root {
   max-width: 100%;
   max-height: 100%;
   padding: 0px 5px;
+  padding-bottom: 60px;
   margin: auto;
+}
+
+#b-default {
   background: linear-gradient(to bottom right, #2196f3, #90caf9);
 }
 
+#b-hot {
+  background: linear-gradient(to bottom right, #f35d21, #edac6f);
+}
+
+@media screen and (min-width: 850px) {
+  .App {
+    padding: 15px 80px;
+    padding-bottom: 60px;
+  }
+}
 .inputs-container {
   margin: 24px 0px;
   display: flex;
@@ -65,10 +86,7 @@ html, body, :root {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-}
-
-.search-bar {
-  margin-bottom: 15px;
+  gap: var(--gap-size-inputs);
 }
 
 .search-bar-input {
@@ -130,4 +148,10 @@ html, body, :root {
   margin: 0px 10px;
   font-size: var(--font-size-input-unit);
   line-height: 28px;
+}
+
+@media screen and (max-width: 360px) {
+  .search-bar {
+    margin-bottom: 15px;
+  }
 }/*# sourceMappingURL=Inputs.css.map */

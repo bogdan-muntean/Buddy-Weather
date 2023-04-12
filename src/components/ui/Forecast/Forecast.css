@@ -4,14 +4,16 @@
   --font-size-default-hover: calc(var(--font-size-default) + 1px);
   --font-size-top-buttons: calc(var(--font-size-default) + 8px);
   --font-size-input-unit: calc(var(--font-size-default) + 10px);
-  --font-size-details: calc(var(--font-size-default) + 4px);
+  --font-size-details: calc(var(--font-size-default) + 6px);
   --font-size-temperature-principal: calc(var(--font-size-default) + 27px);
   --line-height-default: calc(var(--font-size-default) + 5px);
   --line-height-top-buttons: calc(var(--font-size-top-buttons) + 5px)
     //var title size
     --font-size-big-title: calc(var(--font-size-default) + 13px);
-  --font-size-title: calc(var(--font-size-default) + 6px);
-  --font-size-subtitle: calc(var(--font-size-default) + 4px);
+  --font-size-title: calc(var(--font-size-default) + 8px);
+  --font-size-subtitle: calc(var(--font-size-default) + 6px);
+  --icon-size-principal: 180px;
+  --icon-size-forecast: calc(var(--icon-size-principal) - 100px);
   --color-text-primary: #000;
   --color-primary: #191d2b;
   --color-secondary: #273dae;
@@ -52,14 +54,21 @@ html, body, :root {
   max-width: 100%;
   max-height: 100%;
   padding: 0px 5px;
+  padding-bottom: 60px;
   margin: auto;
   background: linear-gradient(to bottom right, #2196f3, #90caf9);
 }
 
+@media screen and (min-width: 850px) {
+  .App {
+    padding: 15px 80px;
+    padding-bottom: 60px;
+  }
+}
 .forecast-container {
   width: 100%;
-  margin-top: 24px;
-  padding: 0px 10px;
+  margin-top: 30px;
+  padding: 0px 15px;
 }
 
 .forecast-title {
@@ -76,35 +85,38 @@ html, body, :root {
 }
 
 .forecast-timestamp-container {
-  display: block;
-  width: 80px;
-  max-height: 500px;
+  display: flex;
+  width: 100%;
+  height: 200px;
   padding: 5px;
-  transform: rotate(90deg);
-  transform: rotate(-90deg) translateY(-80px);
-  transform-origin: right top;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: auto;
+  white-space: nowrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 5px;
 }
 
 .forecast-timestamp-item {
-  width: 100px;
-  height: 100px;
-  display: block;
+  display: flex;
+  width: 200px;
+  height: 100%;
   padding: 5px;
-  transform: rotate(90deg);
-  transform-origin: right top;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
 
 .forecast-timestamp-item-title {
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 300;
+  font-size: var(--font-size-default);
+  line-height: var(--line-height-default);
+  font-weight: 500;
 }
 
 .forecast-timestamp-item-image {
-  width: 50px;
-  height: 50px;
+  width: var(--icon-size-forecast);
+  height: var(--icon-size-forecast);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

@@ -7,9 +7,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-}
-.search-bar {
-  margin-bottom: 15px;
+  gap: var(--gap-size-inputs);
 }
 .search-bar-input {
   padding: 8px;
@@ -67,4 +65,10 @@
   margin: 0px 10px;
   font-size: var(--font-size-input-unit);
   line-height: 28px;
+}
+
+@media screen and (max-width: 360px){
+  .search-bar{
+    margin-bottom: 15px;
+  }
 }

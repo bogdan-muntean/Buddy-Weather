@@ -24,8 +24,19 @@ html, body, :root{
   max-width: 100%;
   max-height: 100%;
   padding: 0px 5px;
+  padding-bottom: 60px;
   margin: auto;
+}
+#b-default{
   background: linear-gradient(to bottom right, #2196f3, #90caf9);
-  // box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-  //   0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+#b-hot{
+  background: linear-gradient(to bottom right, #f35d21, #edac6f);
+}
+
+@media screen and (min-width: 850px){
+  .App {
+    padding: 15px 80px;
+    padding-bottom: 60px;
+  }
 }
