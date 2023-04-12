@@ -84,13 +84,13 @@ function TemperatureAndDetails({
         <div className="edge-item">
           <UilSun></UilSun>
           <p className="edge-item-text">
-            Rise: <span className="edge-value">{formatToLocalTime(sunrise, timezone, "hh:mm")}</span>
+            Rise: <span className="edge-value">{formatToLocalTime(sunrise, timezone, "HH:mm")}</span>
           </p>
         </div>
         <div className="edge-item">
           <UilSunset></UilSunset>
           <p className="edge-item-text">
-            Set: <span className="edge-value">{formatToLocalTime(sunset, timezone, "hh:mm")}</span>
+            Set: <span className="edge-value">{formatToLocalTime(sunset, timezone, "HH:mm")}</span>
           </p>
         </div>
         <div className="edge-item">

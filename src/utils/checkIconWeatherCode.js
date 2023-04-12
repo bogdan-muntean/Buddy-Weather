@@ -29,59 +29,59 @@ const checkIconWeatherCode = (code, day) => {
             icon = "Atmosphere-fog";
         break;
         case 48:
-            description = "Depositing rime fog";
+            description = "Depositing Rime Fog";
             icon = "Atmosphere-fog";
         break;
         case 51:
-            description = "Drizzle light";
+            description = "Light Drizzle";
             icon = "Rain-light_intensity_shower_rain";
         break;
         case 53:
-            description = "Drizzle moderate";
+            description = "Moderate Drizzle";
             icon = "Rain-shower_rain";
         break;
         case 55:
-            description = "Drizzle dense intensity";
+            description = "Dense intensity Drizzle";
             icon = "Rain-heavy_intensity_shower_rain";
         break;
         case 56:
-            description = "Freezing Drizzle light ";
+            description = "Light Freezing Drizzle";
             icon = "Snow-light_shower_sleet";
         break;
         case 57:
-            description = "Freezing Drizzle dense intensity";
+            description = "Dense intensity Freezing Drizzle";
             icon = "Snow-shower_sleet";
         break;
         case 61:
-            description = "Rain slight";
+            description = "Light Rain";
             icon = "Rain-light_rain";
         break;
         case 63:
-            description = "Rain moderate ";
+            description = "Moderate Rain";
             icon = "Rain-moderate_rain";
         break;
         case 65:
-            description = "Rain heavy intensity";
+            description = "Heavy intensity Rain";
             icon = "Rain-extreme_rain";
         break;
         case 66:
-            description = "Freezing Rain light ";
+            description = "Light Freezing Rain";
             icon = "Snow-light_rain_and_snow";
         break;
         case 67:
-            description = "Freezing Rain heavy intensity";
+            description = "Heavy intensity Freezing Rain";
             icon = "Snow-rain_and_snow";
         break;
         case 71:
-            description = "Snow fall slight";
+            description = "Light Snow";
             icon = "Snow-light_snow";
         break;
         case 73:
-            description = "Snow fall moderate";
+            description = "Moderate Snow";
             icon = "Snow-snow";
         break;
         case 75:
-            description = "Snow fall heavy intensity";
+            description = "Heavy Intensity Snow";
             icon = "Snow-heavy_snow";
         break;
         case 77:
@@ -89,35 +89,35 @@ const checkIconWeatherCode = (code, day) => {
             icon = "Snow-heavy_snow";
         break;
         case 80:
-            description = "Rain showers slight";
+            description = "Light Rain showers";
             icon = "Rain-light_intensity_shower_rain";
         break;
         case 81:
-            description = "Rain showers moderate";
+            description = "Moderate Rain Showers";
             icon = "Rain-shower_rain";
         break;
         case 82:
-            description = "Rain showers violent";
+            description = "Violent Rain Showers";
             icon = "Rain-heavy_intensity_shower_rain";
         break;
         case 85:
-            description = "Snow showers slight ";
+            description = "Light Snow";
             icon = "Snow-light_shower_snow";
         break;
         case 86:
-            description = "Snow showers heavy";
+            description = "Heavy Snow";
             icon = "Snow-heavy_shower_snow";
         break;
         case 95:
-            description = "Thunderstorm slight or moderate";
+            description = "Thunderstorm moderate";
             icon = "Thunderstorm-thunderstorm";
         break;
         case 96:
-            description = "Thunderstorm slight ";
+            description = "Light Thunderstorm";
             icon = "Thunderstorm-light_thunderstorm";
         break;
         case 99:
-            description = "Thunderstorm heavy hail";
+            description = "Heavy Thunderstorm";
             icon = "Thunderstorm-heavy_thunderstorm";
         break;
     }
