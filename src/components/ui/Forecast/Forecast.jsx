@@ -16,7 +16,7 @@ return (
             <div
               className="forecast-timestamp-item-image"
               // style={{ backgroundImage: `url(./weather-img-code/${item.checkIconProps.day}/${item.checkIconProps.icon}.png)` }}
-              style={{ backgroundImage: `url(../../../../public/weather-img-code/${item.checkIconProps.day}/${item.checkIconProps.icon}.png)` }}
+              style={{ backgroundImage: `url(../../../../public/assets/weather-img-code/${item.checkIconProps.day}/${item.checkIconProps.icon}.png)` }}
             ></div>
             <p className="forecast-timestamp-item-temperature">{`${item.temp.toFixed()}°`}</p>
             <p className="forecast-timestamp-item-description">{`${item.checkIconProps.description}`}</p>

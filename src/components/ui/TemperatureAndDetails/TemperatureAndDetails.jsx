@@ -45,7 +45,7 @@ function TemperatureAndDetails({
         <div
           className="temp-icon-principal"
           // style={{ backgroundImage: `url(./weather-img-code/${weatherPropsCurrent.day}/${weatherPropsCurrent.icon}.png)` }}
-          style={{ backgroundImage: `url(../../../../public/weather-img-code/${weatherPropsCurrent.day}/${weatherPropsCurrent.icon}.png)` }}
+          style={{ backgroundImage: `url(../../../../public/assets/weather-img-code/${weatherPropsCurrent.day}/${weatherPropsCurrent.icon}.png)` }}
         ></div>
         <p className="temp-temperature">{`${temp.toFixed()}°`}</p>
         <div className="temp-bonus-container">
