@@ -58,8 +58,8 @@
   text-align: center;
 }
 
-// @media screen and (max-width: 370px){
-//   .edge-value{
-//     margin-top: 5px;
-//   }
-// }
+@media screen and (min-width: 1350px){
+  #daily-f{
+  justify-content: center;
+  }
+}

@@ -9,7 +9,7 @@ return (
         <p className="forecast-title-text">{title}</p>
       </div>
       <hr className="forecast-line-break"></hr>
-      <div className="forecast-timestamp-container">
+      <div className="forecast-timestamp-container" id={`${title == "daily forecast" ? 'daily-f' : ''}`}>
         {forecastData.map((item, index) => (
           <div className="forecast-timestamp-item" key={index}>
             <p className="forecast-timestamp-item-title">{item.title}</p>
