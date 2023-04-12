@@ -1,9 +1,9 @@
 {
-  "name": "my-vue-app",
+  "name": "buddy-weather",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://bogdan-muntean.github.io/Buddy-Weather/",
+  "homepage": "/Buddy-Weather/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -14,7 +14,8 @@
   "dependencies": {
     "@iconscout/react-unicons": "^2.0.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "luxon": "^3.3.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
