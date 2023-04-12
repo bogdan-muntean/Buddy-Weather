@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./assets/global.css";
 import TopButtons from "./components/form/TopButtons/TopButtons";
 import Inputs from "./components/form/Inputs/Inputs";

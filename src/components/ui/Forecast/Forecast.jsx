@@ -1,6 +1,5 @@
 import React from "react";
 import "./Forecast.css";
-import ImageSun from "../../../assets/weather-images/Sun.png";
 
 function Forecast({ title, forecastData }) {
 return (
@@ -16,7 +15,7 @@ return (
             <div
               className="forecast-timestamp-item-image"
               // style={{ backgroundImage: `url(./weather-img-code/${item.checkIconProps.day}/${item.checkIconProps.icon}.png)` }}
-              style={{ backgroundImage: `url(../../../../public/assets/weather-img-code/${item.checkIconProps.day}/${item.checkIconProps.icon}.png)` }}
+              style={{ backgroundImage: `url(weather-img-code/${item.checkIconProps.day}/${item.checkIconProps.icon}.png)` }}
               // style={{ backgroundImage: `url(../../../../../../public/assets/weather-img-code/${item.checkIconProps.day}/${item.checkIconProps.icon}.png)` }}
               // style={{ backgroundImage: `url(../../../../../assets/weather-img-code/${item.checkIconProps.day}/${item.checkIconProps.icon}.png)` }}
             ></div>
