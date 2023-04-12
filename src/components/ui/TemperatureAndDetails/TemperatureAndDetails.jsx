@@ -12,6 +12,7 @@ import {
 import Thermometer from "../../../../public/assets/weather-images/Thermometer.png";
 import Wind from "../../../../public/assets/weather-images/Wind.png";
 import Droplets from "../../../../public/assets/weather-images/Droplets.png";
+import { url } from "inspector";
 
 function TemperatureAndDetails({
   weather: {
@@ -44,7 +45,7 @@ function TemperatureAndDetails({
         <div
           className="temp-icon-principal"
           // style={{ backgroundImage: `url(./weather-img-code/${weatherPropsCurrent.day}/${weatherPropsCurrent.icon}.png)` }}
-          style={{ backgroundImage: `../../../../public/assets/weather-img-code/${weatherPropsCurrent.day}/${weatherPropsCurrent.icon}.png)` }}
+          style={{ backgroundImage: `url(../../../../public/assets/weather-img-code/${weatherPropsCurrent.day}/${weatherPropsCurrent.icon}.png)` }}
           // style={{ backgroundImage: `url(../../../../../assets/weather-img-code/${weatherPropsCurrent.day}/${weatherPropsCurrent.icon}.png)` }}
           // style={{ backgroundImage: `url(../../../../../../public/assets/weather-img-code/${weatherPropsCurrent.day}/${weatherPropsCurrent.icon}.png)` }}
         ></div>
