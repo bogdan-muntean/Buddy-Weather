@@ -9,10 +9,9 @@ import {
   UilArrowDown,
   UilArrowUp,
 } from "@iconscout/react-unicons";
-import ImagePrincipal from "../../../../public/weather-img-code/day/Clear-clear_sky.png";
-import Thermometer from "../../../assets/weather-images/Thermometer.png";
-import Wind from "../../../assets/weather-images/Wind.png";
-import Droplets from "../../../assets/weather-images/Droplets.png";
+import Thermometer from "../../../../public/assets/weather-images/Thermometer.png";
+import Wind from "../../../../public/assets/weather-images/Wind.png";
+import Droplets from "../../../../public/assets/weather-images/Droplets.png";
 
 function TemperatureAndDetails({
   weather: {
@@ -45,7 +44,9 @@ function TemperatureAndDetails({
         <div
           className="temp-icon-principal"
           // style={{ backgroundImage: `url(./weather-img-code/${weatherPropsCurrent.day}/${weatherPropsCurrent.icon}.png)` }}
-          style={{ backgroundImage: `url(../../../../public/assets/weather-img-code/${weatherPropsCurrent.day}/${weatherPropsCurrent.icon}.png)` }}
+          style={{ backgroundImage: `../../../../public/assets/weather-img-code/${weatherPropsCurrent.day}/${weatherPropsCurrent.icon}.png)` }}
+          // style={{ backgroundImage: `url(../../../../../assets/weather-img-code/${weatherPropsCurrent.day}/${weatherPropsCurrent.icon}.png)` }}
+          // style={{ backgroundImage: `url(../../../../../../public/assets/weather-img-code/${weatherPropsCurrent.day}/${weatherPropsCurrent.icon}.png)` }}
         ></div>
         <p className="temp-temperature">{`${temp.toFixed()}°`}</p>
         <div className="temp-bonus-container">
